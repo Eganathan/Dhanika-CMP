@@ -52,8 +52,12 @@ kotlin {
 
             // Navigation
             implementation(libs.navigation.compose)
+
             //Serialization used for Navigation and others
             implementation(libs.kotlinx.serialization.json)
+
+            //ViewModel
+            api(libs.androidx.lifecycle.viewmodel)
 
         }
         commonTest.dependencies {
