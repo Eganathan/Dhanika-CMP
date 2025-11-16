@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -43,11 +44,17 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            //Logging
+            // Logging
             implementation(libs.kermit)
 
-            //Resources Management
+            // Resources Management
             implementation(libs.components.resources)
+
+            // Navigation
+            implementation(libs.navigation.compose)
+            //Serialization used for Navigation and others
+            implementation(libs.kotlinx.serialization.json)
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
