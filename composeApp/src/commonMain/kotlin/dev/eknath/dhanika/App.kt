@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import co.touchlab.kermit.Logger
 import dev.eknath.dhanika.util.Log
 import dev.eknath.dhanika.util.d
+import dev.eknath.dhanika.util.dhanikaCustomTypography
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -25,7 +26,9 @@ import dhanika.composeapp.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    MaterialTheme(
+        typography = dhanikaCustomTypography()
+    ) {
         var showContent by remember { mutableStateOf(false) }
         Column(
             modifier = Modifier
@@ -34,12 +37,7 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = {
-                showContent = !showContent
-                Log.d(message = "Testing Button Click")
-            }) {
-                Text("Click me!")
-            }
+            Text("Testing font")
 
 //            AnimatedVisibility(showContent) {
 //                val greeting = remember { Greeting().greet() }
