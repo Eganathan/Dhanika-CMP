@@ -13,6 +13,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import co.touchlab.kermit.Logger
+import dev.eknath.dhanika.util.Log
+import dev.eknath.dhanika.util.d
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -31,19 +34,23 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = { showContent = !showContent }) {
+            Button(onClick = {
+                showContent = !showContent
+                Log.d(message = "Testing Button Click")
+            }) {
                 Text("Click me!")
             }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
+
+//            AnimatedVisibility(showContent) {
+//                val greeting = remember { Greeting().greet() }
+//                Column(
+//                    modifier = Modifier.fillMaxWidth(),
+//                    horizontalAlignment = Alignment.CenterHorizontally,
+//                ) {
+//                    Image(painterResource(Res.drawable.compose_multiplatform), null)
+//                    Text("Compose: $greeting")
+//                }
+//            }
         }
     }
 }
