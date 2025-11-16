@@ -57,7 +57,7 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
 
             //ViewModel
-            api(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.androidx.lifecycle.viewmodelCompose)
 
         }
         commonTest.dependencies {

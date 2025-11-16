@@ -54,7 +54,8 @@ object SettingsScreen : AppNavRoute() {
 object ViewModeTestingNavItem : AppNavRoute() {
     @Composable
     override fun Content(navController: NavController) {
-        val viewModel = viewModel<CounterViewModel>()
+        val viewModel = viewModel { CounterViewModel() }
+
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
@@ -77,7 +78,7 @@ object ViewModeTestingNavItem : AppNavRoute() {
     }
 }
 
-private val AllScreens = listOf(HomeScreen, SettingsScreen, ViewModeTestingNavItem)
+private val AllScreens = listOf<AppNavRoute>(HomeScreen, SettingsScreen,ViewModeTestingNavItem)
 
 @Composable
 fun AppNav() {
