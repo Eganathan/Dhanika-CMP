@@ -10,7 +10,7 @@ internal sealed class AppNavRoute {
     abstract fun Content(navController: NavController)
 }
 
-private val AllScreens = listOf<AppNavRoute>(
+internal val AllScreens = listOf<AppNavRoute>(
     HomeRoute,
     SettingsNavItem,
 )

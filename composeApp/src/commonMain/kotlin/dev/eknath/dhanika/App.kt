@@ -9,9 +9,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun App() {
-    MaterialTheme(
-        typography = dhanikaCustomTypography()
-    ) {
+    MaterialTheme(typography = dhanikaCustomTypography()) {
         AppNav()
     }
 }

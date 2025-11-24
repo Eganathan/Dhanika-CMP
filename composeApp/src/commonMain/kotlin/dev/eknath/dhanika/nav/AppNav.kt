@@ -6,12 +6,14 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dev.eknath.dhanika.nav.routes.AllScreens
 import dev.eknath.dhanika.nav.routes.AppNavRoute
+import dev.eknath.dhanika.nav.routes.HomeRoute
 
 @Composable
 fun AppNav() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = HomeScreen) {
+    NavHost(navController = navController, startDestination = HomeRoute) {
         addRoutes(AllScreens, navController)
     }
 }
