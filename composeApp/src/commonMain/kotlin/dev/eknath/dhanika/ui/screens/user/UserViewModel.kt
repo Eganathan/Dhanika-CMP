@@ -7,8 +7,11 @@ import androidx.lifecycle.viewModelScope
 import dev.eknath.dhanika.repository.UserRepository
 import dev.eknath.dhanika.room.models.LocalUserInfo
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
+import org.koin.compose.koinInject
 
-class UserViewModel(val userRepository: UserRepository) : ViewModel() {
+@KoinViewModel
+class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _userInfo = mutableStateOf<LocalUserInfo?>(null)
     val userInfo: State<LocalUserInfo?> = _userInfo

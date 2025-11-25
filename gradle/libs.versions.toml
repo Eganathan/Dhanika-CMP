@@ -14,6 +14,8 @@ composeHotReload = "1.0.0-rc02"
 composeMultiplatform = "1.9.1"
 junit = "4.13.2"
 kermit = "2.0.8"
+koinKspCompiler = "2.3.1"
+koinAnnotations = "2.3.1"
 kotlin = "2.2.20"
 kotlinx-coroutines = "1.10.2"
 kotlinxSerializationJson = "1.9.0"
@@ -21,14 +23,18 @@ navigationCompose = "2.9.1"
 room = "2.8.4"
 sqlite = "2.6.2"
 ksp = "2.2.20-2.0.4"
+koin-bom = "4.1.0"
 
 [libraries]
 components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "componentsResources" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel-navigation = { module = "io.insert-koin:koin-compose-viewmodel-navigation" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
 koin-core = { module = "io.insert-koin:koin-core" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koinKspCompiler" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -45,6 +51,7 @@ navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-co
 androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

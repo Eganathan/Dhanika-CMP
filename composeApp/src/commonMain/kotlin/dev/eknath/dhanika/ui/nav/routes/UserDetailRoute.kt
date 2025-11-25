@@ -9,6 +9,7 @@ import dev.eknath.dhanika.repository.impl.UserRepositoryImpl
 import dev.eknath.dhanika.ui.screens.user.UserScreen
 import dev.eknath.dhanika.ui.screens.user.UserViewModel
 import kotlinx.serialization.Serializable
+import org.koin.compose.viewmodel.koinViewModel
 
 //hack for quick fix
 var platformAppContext: Any = ""
@@ -17,9 +18,8 @@ var platformAppContext: Any = ""
 internal object UserDetailRoute : AppNavRoute() {
     @Composable
     override fun Content(navController: NavController) {
-        val database = getDhanikaDatabase(context = platformAppContext)
-        val userRepository = UserRepositoryImpl(database.userInfoDao())
-        val userVM = viewModel<UserViewModel> { UserViewModel(userRepository) }
+
+        val userVM = koinViewModel<UserViewModel>()
         UserScreen(userVM)
     }
 }

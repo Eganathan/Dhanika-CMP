@@ -47,7 +47,6 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
             // Logging
@@ -70,11 +69,12 @@ kotlin {
             implementation(libs.androidx.sqlite.bundled)
 
             //DI
-//            implementation(project.dependencies.platform("io.insert-koin:koin-bom:4.1.0"))
-//            implementation(libs.koin.core)
-//            implementation(libs.koin.compose)
-//            implementation(libs.koin.compose.viewmodel)
-//            implementation(libs.koin.compose.viewmodel.navigation)
+            api(libs.koin.annotations)
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.viewmodel.navigation)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -83,6 +83,9 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
         }
+    }
+    sourceSets.named("commonMain").configure {
+        kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
     }
 }
 
@@ -115,12 +118,25 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+
+    //Koin
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
+    add("kspAndroid", libs.koin.ksp.compiler)
+    add("kspIosArm64", libs.koin.ksp.compiler)
+    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
+    add("kspJvm", libs.koin.ksp.compiler)
+
+    //Room
     add("kspAndroid", libs.androidx.room.compiler)
     add("kspIosSimulatorArm64", libs.androidx.room.compiler)
-//    add("kspIosX64", libs.androidx.room.compiler) //Configuration with name 'kspIosX64' not found error was thrown
+    //add("kspIosX64", libs.androidx.room.compiler) //Configuration with name 'kspIosX64' not found error was thrown
     add("kspIosArm64", libs.androidx.room.compiler)
     add("kspJvm", libs.androidx.room.compiler)
 }
+
+tasks.matching { it.name.startsWith("ksp") && it.name != "kspCommonMainKotlinMetadata" }.configureEach {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
 
 compose.desktop {
     application {

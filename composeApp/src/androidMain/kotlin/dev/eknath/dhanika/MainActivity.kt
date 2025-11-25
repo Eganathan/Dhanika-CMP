@@ -6,15 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import dev.eknath.dhanika.di.initKoin
 import dev.eknath.dhanika.ui.nav.routes.platformAppContext
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-
+        platformAppContext = this
+        initKoin()
         setContent {
-            platformAppContext = this
             App()
         }
     }
