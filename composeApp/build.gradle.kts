@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room)
     kotlin("plugin.serialization")
 }
 
@@ -15,6 +17,10 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
+    }
+
+    room {
+        schemaDirectory("$projectDir/schemas")
     }
 
     listOf(
@@ -58,6 +64,10 @@ kotlin {
 
             //ViewModel
             implementation(libs.androidx.lifecycle.viewmodelCompose)
+
+            //Room
+            implementation(libs.androidx.room.runtime)
+            implementation(libs.androidx.sqlite.bundled)
 
             //DI
 //            implementation(project.dependencies.platform("io.insert-koin:koin-bom:4.1.0"))
@@ -105,6 +115,11 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+//    add("kspIosX64", libs.androidx.room.compiler) //Configuration with name 'kspIosX64' not found error was thrown
+    add("kspIosArm64", libs.androidx.room.compiler)
+    add("kspJvm", libs.androidx.room.compiler)
 }
 
 compose.desktop {

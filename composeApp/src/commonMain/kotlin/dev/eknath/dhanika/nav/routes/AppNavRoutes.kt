@@ -13,4 +13,5 @@ internal sealed class AppNavRoute {
 internal val AllScreens = listOf<AppNavRoute>(
     HomeRoute,
     SettingsNavItem,
+    UserDetailRoute,
 )
