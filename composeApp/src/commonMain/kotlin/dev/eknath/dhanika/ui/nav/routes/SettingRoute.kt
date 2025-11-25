@@ -1,4 +1,4 @@
-package dev.eknath.dhanika.nav.routes
+package dev.eknath.dhanika.ui.nav.routes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
@@ -8,13 +8,13 @@ import androidx.navigation.NavController
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal object HomeRoute : AppNavRoute() {
+internal object SettingsNavItem : AppNavRoute() {
     @Composable
     override fun Content(navController: NavController) {
         Column {
-            Text("Home")
-            Button(onClick = { navController.navigate(SettingsNavItem) }) {
-                Text("Go to Settings")
+            Text("Setting Screen")
+            Button(onClick = { navController.navigateUp() }) {
+                Text("Navigate Up")
             }
         }
     }

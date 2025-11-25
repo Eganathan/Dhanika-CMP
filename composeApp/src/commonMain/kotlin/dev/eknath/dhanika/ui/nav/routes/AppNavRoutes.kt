@@ -1,4 +1,4 @@
-package dev.eknath.dhanika.nav.routes
+package dev.eknath.dhanika.ui.nav.routes
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController

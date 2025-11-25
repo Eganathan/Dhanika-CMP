@@ -1,11 +1,13 @@
-package dev.eknath.dhanika.nav.routes
+package dev.eknath.dhanika.ui.nav.routes
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import dev.eknath.dhanika.platformspecific.getDhanikaDatabase
-import dev.eknath.dhanika.ui.user.UserScreen
-import dev.eknath.dhanika.ui.user.UserViewModel
+import dev.eknath.dhanika.repository.UserRepository
+import dev.eknath.dhanika.repository.impl.UserRepositoryImpl
+import dev.eknath.dhanika.ui.screens.user.UserScreen
+import dev.eknath.dhanika.ui.screens.user.UserViewModel
 import kotlinx.serialization.Serializable
 
 //hack for quick fix
@@ -16,7 +18,8 @@ internal object UserDetailRoute : AppNavRoute() {
     @Composable
     override fun Content(navController: NavController) {
         val database = getDhanikaDatabase(context = platformAppContext)
-        val userVM = viewModel<UserViewModel> { UserViewModel(database.userInfoDao()) }
+        val userRepository = UserRepositoryImpl(database.userInfoDao())
+        val userVM = viewModel<UserViewModel> { UserViewModel(userRepository) }
         UserScreen(userVM)
     }
 }

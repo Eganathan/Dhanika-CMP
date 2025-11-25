@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
 import dev.eknath.dhanika.room.models.LocalUserInfo
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserInfoDao {

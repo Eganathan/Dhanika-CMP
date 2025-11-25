@@ -1,4 +1,4 @@
-package dev.eknath.dhanika.ui.user
+package dev.eknath.dhanika.ui.screens.user
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

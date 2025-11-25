@@ -1,4 +1,4 @@
-package dev.eknath.dhanika.nav
+package dev.eknath.dhanika.ui.nav
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
@@ -6,9 +6,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dev.eknath.dhanika.nav.routes.AllScreens
-import dev.eknath.dhanika.nav.routes.AppNavRoute
-import dev.eknath.dhanika.nav.routes.UserDetailRoute
+import dev.eknath.dhanika.ui.nav.routes.AllScreens
+import dev.eknath.dhanika.ui.nav.routes.AppNavRoute
+import dev.eknath.dhanika.ui.nav.routes.UserDetailRoute
 
 @Composable
 fun AppNav() {
