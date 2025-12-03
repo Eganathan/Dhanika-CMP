@@ -9,6 +9,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal object HomeRoute : AppNavRoute() {
+
+    override val label = "Home"
+
     @Composable
     override fun Content(navController: NavController) {
         Column {

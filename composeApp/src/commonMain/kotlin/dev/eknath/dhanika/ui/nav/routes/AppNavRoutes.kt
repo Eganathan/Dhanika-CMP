@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal sealed class AppNavRoute {
+
+    abstract val label: String
     @Composable
     abstract fun Content(navController: NavController)
 }

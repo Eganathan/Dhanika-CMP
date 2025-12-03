@@ -16,6 +16,10 @@ var platformAppContext: Any = ""
 
 @Serializable
 internal object UserDetailRoute : AppNavRoute() {
+
+    override val label = "UserDetails"
+
+
     @Composable
     override fun Content(navController: NavController) {
 

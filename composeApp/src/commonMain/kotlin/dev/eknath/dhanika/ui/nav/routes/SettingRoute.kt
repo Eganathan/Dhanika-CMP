@@ -9,6 +9,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal object SettingsNavItem : AppNavRoute() {
+
+    override val label = "Settings"
+
     @Composable
     override fun Content(navController: NavController) {
         Column {
