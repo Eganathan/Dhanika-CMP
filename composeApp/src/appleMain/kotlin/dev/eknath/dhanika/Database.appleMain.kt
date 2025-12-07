@@ -1,4 +1,4 @@
-package dev.eknath.dhanika.platformspecific
+package dev.eknath.dhanika
 
 import androidx.room.Room
 import androidx.room.RoomDatabase
