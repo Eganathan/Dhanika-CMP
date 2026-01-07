@@ -9,8 +9,8 @@ import dev.eknath.dhanika.room.models.LocalCategory
     tableName = "INCOME",
     foreignKeys = [ForeignKey(
         entity = LocalCategory::class,
-        parentColumns = ["associatedCategoryId"],
-        childColumns = ["categoryId"]
+        parentColumns = ["categoryId"],
+        childColumns = ["associatedCategoryId"]
     )]
 )
 data class LocalIncome(

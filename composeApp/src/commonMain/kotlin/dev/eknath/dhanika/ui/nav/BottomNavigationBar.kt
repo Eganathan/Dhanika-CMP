@@ -17,9 +17,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.toRoute
+import dev.eknath.dhanika.ui.nav.routes.AccountRoute
 import dev.eknath.dhanika.ui.nav.routes.AppNavRoute
+import dev.eknath.dhanika.ui.nav.routes.CategoryRoute
 import dev.eknath.dhanika.ui.nav.routes.HomeRoute
 import dev.eknath.dhanika.ui.nav.routes.SettingsNavItem
+import dev.eknath.dhanika.ui.nav.routes.TransactionRoute
 import dev.eknath.dhanika.ui.nav.routes.UserDetailRoute
 
 @Composable
@@ -43,7 +46,6 @@ fun AppBottomNavigationBar(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // need to work on this later
             NavigationItem(
                 isSelected = false,
                 onClick = {
@@ -55,9 +57,25 @@ fun AppBottomNavigationBar(
             NavigationItem(
                 isSelected = false,
                 onClick = {
-                    navController.navigate(UserDetailRoute)
+                    navController.navigate(AccountRoute)
                 },
-                label = UserDetailRoute.label,
+                label = AccountRoute.label,
+            )
+
+            NavigationItem(
+                isSelected = false,
+                onClick = {
+                    navController.navigate(CategoryRoute)
+                },
+                label = CategoryRoute.label,
+            )
+
+            NavigationItem(
+                isSelected = false,
+                onClick = {
+                    navController.navigate(TransactionRoute)
+                },
+                label = TransactionRoute.label,
             )
 
             NavigationItem(

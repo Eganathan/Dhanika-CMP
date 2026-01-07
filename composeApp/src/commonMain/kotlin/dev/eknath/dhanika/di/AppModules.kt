@@ -19,7 +19,11 @@ class AppModule
 
 val sharedModule = module {
     single<AppDatabase> { getRoomDatabase(get()) }
-    single<UserInfoDao> { get<AppDatabase>().userInfoDao() }
+    single { get<AppDatabase>().userInfoDao() }
+    single { get<AppDatabase>().accountDao() }
+    single { get<AppDatabase>().categoryDao() }
+    single { get<AppDatabase>().expenseDao() }
+    single { get<AppDatabase>().incomeDao() }
 }
 
 fun initKoin(config: KoinAppDeclaration? = null) { // the config is required to pass the application context etc

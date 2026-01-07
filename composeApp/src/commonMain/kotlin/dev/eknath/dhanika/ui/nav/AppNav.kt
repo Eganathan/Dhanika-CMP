@@ -8,10 +8,13 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dev.eknath.dhanika.ui.nav.routes.AccountRoute
 import dev.eknath.dhanika.ui.nav.routes.AllScreens
 import dev.eknath.dhanika.ui.nav.routes.AppNavRoute
+import dev.eknath.dhanika.ui.nav.routes.CategoryRoute
 import dev.eknath.dhanika.ui.nav.routes.HomeRoute
 import dev.eknath.dhanika.ui.nav.routes.SettingsNavItem
+import dev.eknath.dhanika.ui.nav.routes.TransactionRoute
 import dev.eknath.dhanika.ui.nav.routes.UserDetailRoute
 
 @Composable
@@ -23,10 +26,9 @@ fun AppNav() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = UserDetailRoute,
+            startDestination = AccountRoute,
             modifier = androidx.compose.ui.Modifier.padding(paddingValues)
         ) { /*addRoutes(AllScreens, navController)*/
-
 
             composable<HomeRoute> {
                 HomeRoute.Content((navController))
@@ -38,6 +40,18 @@ fun AppNav() {
 
             composable<SettingsNavItem> {
                 UserDetailRoute.Content((navController))
+            }
+
+            composable<AccountRoute> {
+                AccountRoute.Content(navController)
+            }
+
+            composable<CategoryRoute> {
+                CategoryRoute.Content(navController)
+            }
+
+            composable<TransactionRoute> {
+                TransactionRoute.Content(navController)
             }
 
         }
